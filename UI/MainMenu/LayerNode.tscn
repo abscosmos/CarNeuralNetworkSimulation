@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://di5unrswuaow0"]
+
+[ext_resource type="Script" path="res://UI/MainMenu/NetworkLayerNode.gd" id="1_fma6l"]
+[ext_resource type="Texture2D" uid="uid://bwj0p72llgqgu" path="res://UI/Images/close.svg" id="1_utdgm"]
+
+[node name="NetworkLayerNode" type="HBoxContainer"]
+size_flags_horizontal = 0
+script = ExtResource("1_fma6l")
+max_value = 999
+
+[node name="Number" type="LineEdit" parent="."]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 2
+text = "1"
+alignment = 1
+
+[node name="Delete" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("1_utdgm")
+
+[connection signal="focus_exited" from="Number" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_changed" from="Number" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="Number" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]

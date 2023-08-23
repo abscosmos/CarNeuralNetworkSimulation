@@ -1,0 +1,696 @@
+[gd_scene load_steps=19 format=3 uid="uid://dkifn8hweq0if"]
+
+[ext_resource type="Script" path="res://UI/MainMenu/MainMenu.gd" id="1_fjtm3"]
+[ext_resource type="Texture2D" uid="uid://euv5s7sldtx6" path="res://UI/Images/arrow_left.svg" id="2_byasb"]
+[ext_resource type="Texture2D" uid="uid://dabboagegucg0" path="res://UI/Images/edit.svg" id="2_e1fot"]
+[ext_resource type="Shader" path="res://UI/MainMenu/put_image_on_panel_gray_tint.gdshader" id="2_uyr5y"]
+[ext_resource type="Shader" path="res://UI/MainMenu/put_image_on_panel.gdshader" id="3_3n5hk"]
+[ext_resource type="PackedScene" uid="uid://di5unrswuaow0" path="res://UI/MainMenu/LayerNode.tscn" id="3_bgcjq"]
+[ext_resource type="Texture2D" uid="uid://bekjyk4jmcfyf" path="res://UI/Images/new.svg" id="4_n7vq6"]
+[ext_resource type="Texture2D" uid="uid://du8tv6u07c5ek" path="res://UI/Images/arrow_right.svg" id="4_tac2s"]
+[ext_resource type="Texture2D" uid="uid://0c1q06fajqf" path="res://UI/Images/load.svg" id="5_hir15"]
+[ext_resource type="Texture2D" uid="uid://cdclktqlaj7qn" path="res://UI/Images/info.svg" id="5_q5vvl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htdab"]
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q5r3"]
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cy0h5"]
+shader = ExtResource("2_uyr5y")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6y8jc"]
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3usm1"]
+shader = ExtResource("3_3n5hk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6jiw"]
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ls4f3"]
+shader = ExtResource("2_uyr5y")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c86g"]
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="MainMenuLevel" type="Node"]
+script = ExtResource("1_fjtm3")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.356863, 0.627451, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_htdab")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Title"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Title/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Title/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Car Neural Network Simulation"
+
+[node name="QuitButton" type="Button" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Title/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Quit"
+
+[node name="Credits" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0q5r3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Credits"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Credits/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Original" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Credits/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "dinoslice:
+https://dinoslice.com
+https://github.com/dinoslice/
+
+abscosmos: https://github.com/abscosmos
+MSKatKing: https://github.com/MSKatKing"
+
+[node name="MapSelection" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_0q5r3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 26
+text = "Map Selection"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Left" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_cy0h5")
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6y8jc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer/Left"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Button" type="Button" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer/Left/MarginContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+icon = ExtResource("4_tac2s")
+expand_icon = true
+
+[node name="Main" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_3usm1")
+custom_minimum_size = Vector2(185, 185)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f6jiw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer/Main"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer/Main/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 20
+text = "1/5"
+horizontal_alignment = 1
+
+[node name="Right" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_ls4f3")
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_f6jiw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer/Right"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Button" type="Button" parent="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer/Right/MarginContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("2_byasb")
+expand_icon = true
+
+[node name="ConfigureSimulation" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_3c86g")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NewSimulation" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "Configure New Simulation"
+horizontal_alignment = 1
+
+[node name="Parameters" type="VBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResetBrain" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/ResetBrain"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Generate New Brain"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/ResetBrain"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="BrainStructure" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/BrainStructure"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Brain Structure"
+horizontal_alignment = 1
+
+[node name="StructureDisplay" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/BrainStructure"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/BrainStructure/StructureDisplay"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/BrainStructure/StructureDisplay/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/BrainStructure/StructureDisplay/HBoxContainer/MarginContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Edit" type="Button" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/BrainStructure/StructureDisplay/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("2_e1fot")
+
+[node name="LayerEditor" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+alignment = 1
+
+[node name="Input" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor" instance=ExtResource("3_bgcjq")]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="Number" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor/Input" index="0"]
+text = "3"
+editable = false
+
+[node name="Delete" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor/Input" index="1"]
+visible = false
+
+[node name="Hidden" type="HFlowContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.0
+alignment = 1
+
+[node name="NewLayer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor/Hidden"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+
+[node name="Button" type="Button" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor/Hidden/NewLayer"]
+layout_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource("4_n7vq6")
+
+[node name="Output" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor" instance=ExtResource("3_bgcjq")]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="Number" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor/Output" index="0"]
+text = "4"
+editable = false
+
+[node name="Delete" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor/Output" index="1"]
+visible = false
+
+[node name="LoadBrain" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LoadBrain"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Load Brain"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LoadBrain"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Metadata" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LoadBrain/CenterContainer"]
+modulate = Color(0.501961, 1, 0.501961, 0.65098)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 0
+theme_override_font_sizes/font_size = 14
+text = "Brain 00/00/00 00:00: [0,0], Fitness: 00.0"
+
+[node name="PathTooltip" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LoadBrain"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "\"path\""
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LoadBrain/PathTooltip"]
+layout_mode = 2
+texture = ExtResource("5_q5vvl")
+stretch_mode = 3
+
+[node name="Load" type="Button" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LoadBrain"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("5_hir15")
+
+[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+
+[node name="CarsPerGeneration" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/CarsPerGeneration"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Cars Per Generation"
+horizontal_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/CarsPerGeneration"]
+layout_mode = 2
+size_flags_horizontal = 10
+min_value = 1.0
+max_value = 2500.0
+value = 1.0
+rounded = true
+
+[node name="Mutation" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/Mutation"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Mutation Each Generation"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/Mutation"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SliderValue" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/Mutation"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 12
+text = "99%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GenerationTime" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/GenerationTime"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Limit Generation Time"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/GenerationTime"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="SpinBox" type="SpinBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/GenerationTime/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+step = 0.5
+suffix = "sec"
+
+[node name="CheckBox" type="CheckBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/GenerationTime/HBoxContainer"]
+layout_mode = 2
+
+[node name="PurgeGeneration" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/PurgeGeneration"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Purge Generation"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/PurgeGeneration"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="SpinBox" type="SpinBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/PurgeGeneration/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+step = 0.5
+suffix = "sec"
+
+[node name="CheckBox" type="CheckBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/PurgeGeneration/HBoxContainer"]
+layout_mode = 2
+
+[node name="AutoClearDead" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/AutoClearDead"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Auto Clear Dead Cars"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/AutoClearDead"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="SpinBox" type="SpinBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/AutoClearDead/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+step = 0.5
+suffix = "sec"
+
+[node name="CheckBox" type="CheckBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/AutoClearDead/HBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+
+[node name="MultipleSpawnPoints" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/MultipleSpawnPoints"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Use Multiple Spawn Points"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/MultipleSpawnPoints"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="UseComputeShaders" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/UseComputeShaders"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Use Compute Shaders"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/UseComputeShaders"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HSeparator3" type="HSeparator" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+
+[node name="SaveDirectory" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/SaveDirectory"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Save Directory"
+horizontal_alignment = 1
+
+[node name="StructureDisplay" type="PanelContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/SaveDirectory"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/SaveDirectory/StructureDisplay"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/SaveDirectory/StructureDisplay/MarginContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Select" type="Button" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/SaveDirectory"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("5_hir15")
+
+[node name="SubmitForm" type="HBoxContainer" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/SubmitForm"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Start Simulation"
+
+[node name="ResetSettings" type="Button" parent="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/SubmitForm"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Reset Settings"
+
+[node name="Dialogs" type="Node" parent="."]
+
+[node name="LoadFile" type="FileDialog" parent="Dialogs"]
+title = "Load Brain"
+initial_position = 4
+size = Vector2i(650, 450)
+ok_button_text = "Open"
+mode_overrides_title = false
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.braindata; Brain Save Files")
+
+[node name="SelectDirectory" type="FileDialog" parent="Dialogs"]
+title = "Choose Brain Data Save Directory"
+initial_position = 4
+size = Vector2i(650, 450)
+ok_button_text = "Select Current Folder"
+mode_overrides_title = false
+file_mode = 2
+access = 2
+filters = PackedStringArray("*; Folder")
+
+[node name="BrainDataNotFound" type="AcceptDialog" parent="Dialogs"]
+title = "Cannot Start Simulation"
+initial_position = 4
+size = Vector2i(369, 83)
+dialog_text = "Brain data was not found. Please check again."
+
+[node name="InvalidMap" type="AcceptDialog" parent="Dialogs"]
+title = "Cannot Start Simulation"
+initial_position = 4
+size = Vector2i(351, 83)
+dialog_text = "The currently selected map is not available."
+
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/Title/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer/Left/MarginContainer/Button" to="." method="_on_level_select_left_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MapSelection/MarginContainer/VBoxContainer/CenterContainer/MarginContainer/HBoxContainer/HBoxContainer/Right/MarginContainer/Button" to="." method="_on_level_select_right_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/ResetBrain/CheckBox" to="." method="_on_reset_brain_check_box_update"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/BrainStructure/StructureDisplay/HBoxContainer/Edit" to="." method="_on_open_layer_editor_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor/Hidden/NewLayer/Button" to="." method="_on_new_layer_button_pressed"]
+[connection signal="resized" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LoadBrain/CenterContainer/Metadata" to="." method="_on_metadata_label_size_chage"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LoadBrain/Load" to="." method="_on_open_load_brain_button_pressed"]
+[connection signal="value_changed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/Mutation/HSlider" to="." method="_on_mutation_slider_update"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/GenerationTime/HBoxContainer/CheckBox" to="." method="_on_generation_time_check_box_update"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/PurgeGeneration/HBoxContainer/CheckBox" to="." method="_on_purge_generation_check_box_update"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/AutoClearDead/HBoxContainer/CheckBox" to="." method="_on_auto_clear_dead_check_box_update"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/SaveDirectory/Select" to="." method="_on_open_select_save_directory_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/SubmitForm/StartButton" to="." method="_on_start_simulation_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/SubmitForm/ResetSettings" to="." method="_on_reset_settings_pressed"]
+[connection signal="file_selected" from="Dialogs/LoadFile" to="." method="set_load_brain_info_display"]
+[connection signal="dir_selected" from="Dialogs/SelectDirectory" to="." method="_on_save_directory_selected"]
+
+[editable path="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor/Input"]
+[editable path="Control/MarginContainer/CenterContainer/HBoxContainer/ConfigureSimulation/MarginContainer/VBoxContainer/Parameters/LayerEditor/Output"]

@@ -1,0 +1,46 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Car Neural Network Simulation"
+run/main_scene="res://Levels/LevelManager.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.356863, 0.627451, 1)
+boot_splash/image="res://Branding/logo_384x.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://Car/car_red.png"
+config/macos_native_icon="res://Car/car_red.icns"
+config/windows_native_icon="res://Car/car_red.ico"
+
+[autoload]
+
+config_params="*res://NeuralNetwork/SimulationConfigParams.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
+window/subwindows/embed_subwindows=false
+mouse_cursor/tooltip_position_offset=Vector2(-45, 10)
+
+[dotnet]
+
+project/assembly_name="Self Driving Car"
+
+[gui]
+
+timers/tooltip_delay_sec=0.25
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

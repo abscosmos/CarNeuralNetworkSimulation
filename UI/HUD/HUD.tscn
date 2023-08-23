@@ -1,0 +1,151 @@
+[gd_scene load_steps=4 format=3 uid="uid://cok07jjk8heph"]
+
+[ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_q451d"]
+[ext_resource type="PackedScene" uid="uid://civyowb5hjyel" path="res://UI/HUD/InformationChip.tscn" id="2_hroq0"]
+[ext_resource type="Texture2D" uid="uid://euv5s7sldtx6" path="res://UI/Images/arrow_left.svg" id="3_em7sv"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_q451d")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Information" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Generations" parent="Control/MarginContainer/Information" instance=ExtResource("2_hroq0")]
+layout_mode = 2
+
+[node name="Title" parent="Control/MarginContainer/Information/Generations/Control/MarginContainer/VBoxContainer" index="0"]
+text = "Generation"
+
+[node name="Information" parent="Control/MarginContainer/Information/Generations/Control/MarginContainer/VBoxContainer" index="1"]
+text = "999"
+
+[node name="GenerationAlive" parent="Control/MarginContainer/Information" instance=ExtResource("2_hroq0")]
+layout_mode = 2
+
+[node name="MarginContainer" parent="Control/MarginContainer/Information/GenerationAlive/Control" index="0"]
+theme_override_constants/margin_top = 2
+
+[node name="VBoxContainer" parent="Control/MarginContainer/Information/GenerationAlive/Control/MarginContainer" index="0"]
+theme_override_constants/separation = -6
+
+[node name="Title" parent="Control/MarginContainer/Information/GenerationAlive/Control/MarginContainer/VBoxContainer" index="0"]
+text = "Current Gen"
+
+[node name="Information" parent="Control/MarginContainer/Information/GenerationAlive/Control/MarginContainer/VBoxContainer" index="1"]
+theme_override_font_sizes/font_size = 15
+text = "9999/9999"
+
+[node name="CurrentHighestFitness" parent="Control/MarginContainer/Information" instance=ExtResource("2_hroq0")]
+layout_mode = 2
+
+[node name="MarginContainer" parent="Control/MarginContainer/Information/CurrentHighestFitness/Control" index="0"]
+theme_override_constants/margin_top = 9
+
+[node name="Title" parent="Control/MarginContainer/Information/CurrentHighestFitness/Control/MarginContainer/VBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 9
+text = "Current Fitness"
+
+[node name="Information" parent="Control/MarginContainer/Information/CurrentHighestFitness/Control/MarginContainer/VBoxContainer" index="1"]
+text = "9999"
+
+[node name="TotalCars" parent="Control/MarginContainer/Information" instance=ExtResource("2_hroq0")]
+layout_mode = 2
+
+[node name="Title" parent="Control/MarginContainer/Information/TotalCars/Control/MarginContainer/VBoxContainer" index="0"]
+text = "Total Cars"
+
+[node name="Information" parent="Control/MarginContainer/Information/TotalCars/Control/MarginContainer/VBoxContainer" index="1"]
+text = "99999"
+
+[node name="HighestFitness" parent="Control/MarginContainer/Information" instance=ExtResource("2_hroq0")]
+layout_mode = 2
+
+[node name="MarginContainer" parent="Control/MarginContainer/Information/HighestFitness/Control" index="0"]
+theme_override_constants/margin_top = 9
+
+[node name="Title" parent="Control/MarginContainer/Information/HighestFitness/Control/MarginContainer/VBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 9
+text = "Highest Fitness"
+
+[node name="Information" parent="Control/MarginContainer/Information/HighestFitness/Control/MarginContainer/VBoxContainer" index="1"]
+text = "9999"
+
+[node name="TimePassed" parent="Control/MarginContainer/Information" instance=ExtResource("2_hroq0")]
+layout_mode = 2
+
+[node name="Title" parent="Control/MarginContainer/Information/TimePassed/Control/MarginContainer/VBoxContainer" index="0"]
+text = "Time Passed"
+
+[node name="Information" parent="Control/MarginContainer/Information/TimePassed/Control/MarginContainer/VBoxContainer" index="1"]
+text = "99.9s"
+
+[node name="Buttons" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="KillFullGeneration" type="Button" parent="Control/MarginContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+action_mode = 0
+text = "Kill All"
+
+[node name="KillFilteredGeneration" type="Button" parent="Control/MarginContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kill All Except Best"
+
+[node name="ClearDead" type="HBoxContainer" parent="Control/MarginContainer/Buttons"]
+layout_mode = 2
+
+[node name="ClearDeadFromScreen" type="Button" parent="Control/MarginContainer/Buttons/ClearDead"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Clear Dead"
+
+[node name="ClearDeadSwitch" type="CheckBox" parent="Control/MarginContainer/Buttons/ClearDead"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NextGeneration" type="Button" parent="Control/MarginContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Next Generation"
+
+[node name="MenuButton" type="Button" parent="Control/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Menu"
+icon = ExtResource("3_em7sv")
+
+[editable path="Control/MarginContainer/Information/Generations"]
+[editable path="Control/MarginContainer/Information/GenerationAlive"]
+[editable path="Control/MarginContainer/Information/CurrentHighestFitness"]
+[editable path="Control/MarginContainer/Information/TotalCars"]
+[editable path="Control/MarginContainer/Information/HighestFitness"]
+[editable path="Control/MarginContainer/Information/TimePassed"]

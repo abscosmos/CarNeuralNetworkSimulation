@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://dfebfsqwreid6"
+path="res://.godot/imported/neuralNetwork.glsl-09f230097adca76ed5d96259e2656534.res"
+
+[deps]
+
+source_file="res://NeuralNetwork/neuralNetwork.glsl"
+dest_files=["res://.godot/imported/neuralNetwork.glsl-09f230097adca76ed5d96259e2656534.res"]
+
+[params]
+

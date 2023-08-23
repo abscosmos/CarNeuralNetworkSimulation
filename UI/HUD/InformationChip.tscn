@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://civyowb5hjyel"]
+
+[ext_resource type="Texture2D" uid="uid://dmqxhhk3kms7q" path="res://UI/Images/info_card.png" id="1_rv2eg"]
+[ext_resource type="Script" path="res://UI/HUD/InformationChip.gd" id="2_wpxud"]
+
+[node name="InformationChip" type="TextureRect"]
+modulate = Color(1, 1, 1, 0.498039)
+texture = ExtResource("1_rv2eg")
+script = ExtResource("2_wpxud")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="Title" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+text = "Title"
+horizontal_alignment = 1
+
+[node name="Information" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "000"
+horizontal_alignment = 1

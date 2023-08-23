@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4mbs576y6kg"]
+
+[ext_resource type="Script" path="res://NeuralNetwork/Rewards/reward_gate.gd" id="1_rmxw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfjfs"]
+size = Vector2(76, 18.8125)
+
+[node name="RewardGate" type="Area2D"]
+script = ExtResource("1_rmxw0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bfjfs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
